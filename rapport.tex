@@ -1,0 +1,48 @@
+\documentclass[11pt,a4paper]{memoir}
+%\usepackage [Glenn]{fncychap}
+ \usepackage[utf8x]{inputenc}
+ \usepackage[french]{babel}
+ \usepackage[T1]{fontenc}
+ \usepackage{amsmath}
+ \usepackage{tikz}
+ \usepackage{morefloats}
+ \usepackage{amsfonts}
+ \usepackage{titlesec}
+ \usepackage{pdfpages}
+  \usepackage{amssymb}
+ \usepackage{graphicx}
+% \usepackage{fancyhdr}
+ \usepackage{supertabular}
+\usepackage{booktabs}
+\usepackage[hidelinks]{hyperref}
+%\pagestyle{fancy}
+\usepackage{multirow}
+\usepackage{geometry}
+\usepackage{rotating}
+\usepackage{verbatim}
+\usepackage{listings}
+\usepackage{titlesec}
+
+\input{chap_style}
+
+
+\begin{document}
+
+
+%\headrulewidth
+\titlelabel{\thetitle\quad}
+\renewcommand{\contentsname}{Sommaire}
+\tableofcontents
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+\listoftables
+\listoffigures
+
+
+\appendix
+%\frontmatter
+
+
+\bibliographystyle{alpha}
+
+\end{document}
