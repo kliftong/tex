@@ -11,13 +11,21 @@
  \usepackage{pdfpages}
   \usepackage{amssymb}
  \usepackage{graphicx}
-% \usepackage{fancyhdr}
+ \usepackage{xcolor}
  \usepackage{supertabular}
 \usepackage{booktabs}
+\usepackage {threeparttable}
 \usepackage[hidelinks]{hyperref}
+\hypersetup{ 
+    colorlinks = true,
+    citecolor=red, 
+    linkcolor = blue, 
+    filecolor = magenta,       
+    urlcolor = cyan,}
 %\pagestyle{fancy}
 \usepackage{multirow}
-\usepackage{geometry}
+\usepackage[a4paper,left=2.5cm,right=2.5cm,top=2.5
+cm,bottom=2.5cm]{geometry}
 \usepackage{rotating}
 \usepackage{verbatim}
 \usepackage{listings}
@@ -27,22 +35,32 @@
 
 
 \begin{document}
-
-
+\includepdf{couverture/couverture.pdf}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nocite{*}
 %\headrulewidth
 \titlelabel{\thetitle\quad}
 \renewcommand{\contentsname}{Sommaire}
+\renewcommand{\tablename}{Tableau}
+%\renewcommand{\figurename}{Nom de figure}
 \tableofcontents
 \setcounter{tocdepth}{3}
 \setcounter{secnumdepth}{3}
 \listoftables
 \listoffigures
+\chapter{Introduction}
+\input{chapitre3}
+\chapter{État de l'art}
+\input{chapitre4}
+\chapter{Donnée utilisée}
+\input{chapitre1}
 
+\chapter{Méthodologie}
+\input{chapitre2}
+\chapter{Résultats et discutions}
+\chapter{Conclusion et perspectives}
 
-\appendix
-%\frontmatter
+\bibliographystyle{apalike}
 
-
-\bibliographystyle{alpha}
-
+\bibliography{biblio/biblio}
 \end{document}
