@@ -1,0 +1,24 @@
+
+\section{Méthodes d'analyses statistiques}
+Les indicateurs statistiques qui seront utilisés pour quantifier la cohérence entre les précipitations satellitaires et les pluies enregistrées depuis le sol sont : le coefficient de corrélation (R); le biais relatif (BIAS); l’erreur relative (RE) ; l’erreur quadratique (RMSE) et coefficient de Nash-Sutcliffe (NSE)\cite{fang_evaluation_2019}.\\ Cependant,pour examiner plus en détail la capacité des données satellitaires à détecter les événements pluvieux rares, qui sont d\'efinis comme  des pr\'ecipitations dépassant le 90\up{e} percentile des pluies journali\`eres, un ensemble de métriques seront \'egalment utilis\'es telles que 
+:
+\begin{itemize}
+\item la probabilité de détection (POD) :  fraction d'événements de précipitations rares qui ont été détectés correctement par rapport au nombre total d'événements observés au sol.
+\item le taux de fausses  détections (POFD) :  fraction d'événements de précipitations extrêmes qui ont été détectés par satellite mais non observ\'es au sol par rapport au nombre total d'événements non observés au sol.
+\item le taux de fausse alarme (FAR) :  fraction d'événements extrêmes  qui ont été détectés par  satellite mais non observ\'es au sol par rapport  au nombre total d'événements détectés par satellite.
+\item l'indice de réussite critique (CSI) : rapport entre les événements de précipitations rares correctement détectés par satellite et le nombre total d'événements observés ou détectés.
+\end{itemize} 
+Les formules permettant de calculer les métriques de comparaisons sont présentée dans la tableau \ref{metrique}
+\input{tableau/indice_stat}
+\section{Fréquence des précipitations}
+Les 5 étapes permettant de g\'en\'erer le catalogue de temp\^etes et de les courbes IDF d'apres la methode propos\'ee par Wright \cite{wright_estimating_2013} sont les suivantes  :
+\begin{enumerate}
+\item Subdivision de la zone d'étude en plusieurs région ayant des propriétés pluviométriques le plus  homogène que possible. 
+
+
+\item Identification de $m$   tempêtes extrêmes, en fonction de leurs durées et leurs intensités  mais également en fonction  de la forme et de l'orientation de la zone d'étude, sur une période de $n$ années ($m\simeq 10n$) . Nous supposons ensuite que le nombre d'occurrences annuelles des tempêtes suit une distribution de Poisson avec un paramètre de vitesse égal à $\lambda$ tempêtes par an. Les tempêtes ainsi sélectionnées seront désignées sous le nom de \emph{catalogue de tempêtes}.
+\item Sélection d'une tempête au hasard dans le catalogue. Puisque chaque région possède des caractéristiques pluviométriques homogène, cette tempête aurait pu se produire avec la même probabilité partout dans la région considérée. Par conséquent, nous simulons la tempête en train de se déplacer d'une distance $\Delta x$ dans la direction Est-Ouest  et d'une distance $\Delta y$ dans la direction Nord-Sud.
+ Cette procédure est répétée pour un sous-ensemble de $k$ tempêtes sélectionné aléatoirement, o\`u $k$ est un nombre d'occurrences de tempête réparties par la loi de poisson avec le paramètre de vitesse $\lambda$.
+\item Pour chacune des $k$ temp\^etes, on calcule l'intensité de pluie pour une durée $t$ sur la région d'intér\^et. Une fois que les intensités de pluies  ont été calculés pour chacun des $k$ tempête, on déduit l'intensité maximale.
+\item Répétition des deux étapes précédentes afin de créer un ensemble d'intensité de pluie maximale annuelle sur plusieurs années permettant de calculer les courbes IDF.
+\end{enumerate}
